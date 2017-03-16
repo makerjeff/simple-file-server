@@ -3,6 +3,7 @@
 import socket
 import threading
 import os
+import sys
 
 from custom_colors import bcolors
 
@@ -31,8 +32,10 @@ def retr_file(name, sock):
                 sock.send(bytes_to_send)
 
                 while bytes_to_send != '':
+                    print 'sending...'
                     bytes_to_send = f.read(1024)
                     sock.send(bytes_to_send)
+                print 'completed!'
 
         else:
             # error, therefore send-o el error-o
@@ -45,14 +48,14 @@ def retr_file(name, sock):
         sock.send('NOPE')
 
 def Main():
-    host = '127.0.0.1'
+    host = sys.argv[1]
     port =5000
 
     s = socket.socket()
     s.bind((host, port))
 
     s.listen(5)
-    print bcolors.OKBLUE + 'Server started and listening...' + bcolors.ENDC
+    print bcolors.OKBLUE + 'Server started and listening on ' + host  + bcolors.ENDC
 
     # infiniti loop!
     while True:

@@ -10,7 +10,7 @@ def Main():
     # type in file name to download, otherwise hit 'q' to quit.
     # if file doesn't exist, alert user and display list again.
 
-    host = '127.0.0.1'
+    host = sys.argv[1]
     port = 5000
 
     s = socket.socket()
