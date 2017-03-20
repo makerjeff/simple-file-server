@@ -8,3 +8,17 @@ Taking what I learned about reading socket connections, Here's a basic command-l
     - Using BytesIO object as a buffer, do JPG formatting using PIL, then save out to file (or write)
 - [Using Numpy to encode images into byte string](http://stackoverflow.com/questions/17967320/python-opencv-convert-image-to-byte-string): potentially a solution for storing and streaming images over socket.
 - [Fastest way to check if a value exists in a list or string](http://stackoverflow.com/questions/7571635/fastest-way-to-check-if-a-value-exist-in-a-list)
+- [Pillow: Filter an iImage](http://pillow.readthedocs.io/en/3.4.x/reference/ImageFilter.html#example-filter-an-image)
+    - EXAMPLE: 
+        - img = Image.open('file.jpg')
+        - filtered = img.filter(ImageFilter.UnsharpMask(radius=2, percent=150, threshold=3)
+        - iar = np.asarray(filtered)
+        - iar = iar[:,:,::-1]
+        - cv2.imwrite('outputfile.jpg', iar)
+        
+- [Serialize image data to send over Sockets using Pickle](http://stackoverflow.com/questions/7107075/sending-and-receiving-arrays-via-sockets): 
+    - EXAMPLE:
+        - To encode from server: dump = pickle.dumps(iar), returns a binary stream.
+        - To decode from client: load = pickle.loads(dump), returns the image array.
+    - Notes:
+        - [Using BytesIO]https://docs.python.org/2/library/io.html
