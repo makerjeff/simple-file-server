@@ -1,0 +1,41 @@
+Remote Snap
+-----------
+Python picamera based remote CLI snap app.
+Takes a picture with PiCamera and sends it over the wire via TCP, and saves on the client.
+
+Flow:
+
+Server Runs indefinitely
+    - listens for 'SNAP' command
+    - returns 'WAIT'
+
+CLIENT:
+    - asks User for file name to save to
+    - sends 'SNAP' command
+    - receives 'WAIT' command and
+
+RESEARCH:
+- SERVER listens for connections
+- Upon connection, a new 'file handling' thread is spawned
+
+- CLIENT sends a filename as a STRING
+
+- SERVER receives string and checks to see if file exists.
+- If file exists, send back 'EXISTS ' + file size data.
+- SERVER waits for client response.
+
+- CLIENT receives 'EXISTS' response from SERVER, as well as a long of filesize in bytes.
+- Prompts User Y/N confirmation
+- If 'Y', send 'OK' message back to server and open a new file for writing.
+
+- SERVER receives client response,
+- SERVER checks to see if message is 'OK'
+- If 'OK', open file and begin to read the first 1024 bytes
+- SERVER sends first 1024 bytes over the socket.
+- until there is no more data (!= ''), keep sending 1024 bytes at a time.
+
+- CLIENT receives first 1024 bytes of data
+- writes data to file and keeps track of total_received
+- while total_received is less than the amount of filesize,
+- receive the next 1024 bytes and continue writing to file.
+- close the socket on CLIENT
