@@ -16,6 +16,13 @@ Taking what I learned about reading socket connections, Here's a basic command-l
         - iar = iar[:,:,::-1]
         - cv2.imwrite('outputfile.jpg', iar)
         
+- [Proper way to convert from CV2 to PIL](http://stackoverflow.com/questions/13576161/convert-opencv-image-into-pil-image-in-python-for-use-with-zbar-library)
+    - Steps:
+        - cv2 capture
+        - convert from BGR to RGB
+        - create PIL image with Image.fromarray (as CV2 images are numpy arrays))
+        - (do what you need in PIL format, like unsharpmask, etc)
+        
 - [Serialize image data to send over Sockets using Pickle](http://stackoverflow.com/questions/7107075/sending-and-receiving-arrays-via-sockets): 
     - EXAMPLE:
         - To encode from server: dump = pickle.dumps(iar), returns a binary stream.
