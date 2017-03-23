@@ -29,3 +29,5 @@ Taking what I learned about reading socket connections, Here's a basic command-l
         - To decode from client: load = pickle.loads(dump), returns the image array.
     - Notes:
         - [Using BytesIO]https://docs.python.org/2/library/io.html
+- JPG save quality:
+    - cv2.imwrite('img_CV2_90.jpg', a, [int(cv2.IMWRITE_JPEG_QUALITY), 90])
