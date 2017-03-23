@@ -1,7 +1,7 @@
 import socket
 
 def Main():
-    host = '192.168.1.135'
+    host = '192.168.1.130'
     port = 5000
 
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)

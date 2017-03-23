@@ -1,10 +1,10 @@
 import socket
 
 def Main():
-    host = '192.168.1.135'
+    host = '192.168.1.130'
     port = 5001
 
-    server = ('192.168.1.135', 5000)
+    server = ('192.168.1.130', 5000)
 
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     s.bind((host, port))
