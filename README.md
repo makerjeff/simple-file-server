@@ -31,3 +31,8 @@ Taking what I learned about reading socket connections, Here's a basic command-l
         - [Using BytesIO]https://docs.python.org/2/library/io.html
 - JPG save quality:
     - cv2.imwrite('img_CV2_90.jpg', a, [int(cv2.IMWRITE_JPEG_QUALITY), 90])
+- [List Directories in Python](http://stackoverflow.com/questions/3207219/how-to-list-all-files-of-a-directory)
+    - use 'os' module, os.listdir() will returns the RELATIVE path of all files listed, vs glob.glob() will return path based on input pattern.
+- [Python get file size](http://stackoverflow.com/questions/6591931/getting-file-size-in-python): 
+    - os.path.getsize(path)
+- Numpy 'dtype = np.uint8' is required for CV2 image viewing.  This is what CV2 images are.
