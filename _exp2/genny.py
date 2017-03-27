@@ -21,7 +21,6 @@ def random_pattern(max):
     # write the file
     cv2.imwrite('random.png', iar)
 
-
 def write_random_pattern(max, iterations):
 
     iterator = 0
@@ -45,20 +44,20 @@ def display_random_pattern():
 
     current_frame = 1
 
-    iar = np.arange(307200, dtype=np.uint8)
+    iar = np.zeros(307200, dtype=np.uint8)  #np.uint8 = unsigned integer 8-bit (0-255)
+    iar = iar.reshape(480, 640)
 
     while True:
-
         current_frame += 1
 
+        # iterate X
         for item in iar:
-            iar[item] = random.randrange(0,256)
+            iar[item] = random.randrange(0,255)
 
-        iar = iar.reshape(480,640)
+        #iar = iar.reshape(480,640)
         print iar
 
         cv2.imshow('video', iar)
-
         key = cv2.waitKey(1000/15)
 
         if key == ord('q'):
@@ -68,6 +67,8 @@ def display_random_pattern():
     cv2.destroyAllWindows()
 
 def show_pixel_array():
+
+    # this works properly.
     iar = np.zeros(307200, dtype=np.uint8)  #dtype=np.uint8 is required for cv2images.
 
     for item in range(1, 307200):
@@ -79,6 +80,8 @@ def show_pixel_array():
 
     cv2.waitKey(0)
     cv2.destroyAllWindows()
+
+#def pixel sequence
 
 
 def Main():

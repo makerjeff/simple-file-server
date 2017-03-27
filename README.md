@@ -30,9 +30,19 @@ Taking what I learned about reading socket connections, Here's a basic command-l
     - Notes:
         - [Using BytesIO]https://docs.python.org/2/library/io.html
 - JPG save quality:
-    - cv2.imwrite('img_CV2_90.jpg', a, [int(cv2.IMWRITE_JPEG_QUALITY), 90])
+    - cv2.imwrite('img_CV2_90.jpg', img, [int(cv2.IMWRITE_JPEG_QUALITY), 90])
 - [List Directories in Python](http://stackoverflow.com/questions/3207219/how-to-list-all-files-of-a-directory)
     - use 'os' module, os.listdir() will returns the RELATIVE path of all files listed, vs glob.glob() will return path based on input pattern.
 - [Python get file size](http://stackoverflow.com/questions/6591931/getting-file-size-in-python): 
     - os.path.getsize(path)
 - Numpy 'dtype = np.uint8' is required for CV2 image viewing.  This is what CV2 images are.
+- [Python Serial Port Communication](https://tungweilin.wordpress.com/2015/01/04/python-serial-port-communication/)
+- [Scaling Images in Python CV2](http://docs.opencv.org/trunk/da/d6e/tutorial_py_geometric_transformations.html)
+- [String Formatting](https://pyformat.info/) Using '{}'.format()
+- Successful JWX Image sending protocol:
+    - CLIENT connects to SERVER.
+    - CLIENT sends 'OK' to SERVER.
+    - SERVER sends 'FD, str(filesize), filename.ext'.
+    - CLIENT parses FD (file data) response and sends 'GO' to SERVER when ready.
+    - SERVER begins sending binary data.
+    - 'FS######' = File size response from Server.'
