@@ -46,3 +46,4 @@ Taking what I learned about reading socket connections, Here's a basic command-l
     - CLIENT parses FD (file data) response and sends 'GO' to SERVER when ready.
     - SERVER begins sending binary data.
     - 'FS######' = File size response from Server.'
+- [Python ArgParse module for command line flags parsing. ](https://docs.python.org/2/library/argparse.html#module-argparse)
