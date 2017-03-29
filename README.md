@@ -38,6 +38,8 @@ Taking what I learned about reading socket connections, Here's a basic command-l
 - Numpy 'dtype = np.uint8' is required for CV2 image viewing.  This is what CV2 images are.
 - [Python Serial Port Communication](https://tungweilin.wordpress.com/2015/01/04/python-serial-port-communication/)
 - [Scaling Images in Python CV2](http://docs.opencv.org/trunk/da/d6e/tutorial_py_geometric_transformations.html)
+    - height, width = img.shape[:2]
+    - res = cv2.resize(img, (2*width, 2*height). interpolation=cv2.INTER_NEAREST) (or cv2.INTER_CUBIC))
 - [String Formatting](https://pyformat.info/) Using '{}'.format()
 - Successful JWX Image sending protocol:
     - CLIENT connects to SERVER.
@@ -47,3 +49,14 @@ Taking what I learned about reading socket connections, Here's a basic command-l
     - SERVER begins sending binary data.
     - 'FS######' = File size response from Server.'
 - [Python ArgParse module for command line flags parsing. ](https://docs.python.org/2/library/argparse.html#module-argparse)
+- [NumPy Data Types](https://docs.scipy.org/doc/numpy/user/basics.types.html)
+- [**Numpy Input and Output** (important!)](https://docs.scipy.org/doc/numpy/reference/routines.io.html): Save a numpy array to a file on disk.
+- [THIS ONE WORKS: CV2 to Binary](http://stackoverflow.com/questions/17967320/python-opencv-convert-image-to-byte-string) Using np.imencode to create a jpg-encoded buffer, write to any open file.
+    - to encode:
+        - img_str = cv2.imencode('.jpg', img)[1].tostring()
+            - img_str then can be saved to a file via open('filename.ext', 'wb')
+    - To decode:
+        - nparr = np.fromstring(file/buffer.read(), dtype=np.uint8)
+        - img = cv2.imdecode(nparr)
+- [OpenCV 3.0.0](http://docs.opencv.org/3.0-beta/modules/imgcodecs/doc/reading_and_writing_images.html): Reference for imdecode.
+     
