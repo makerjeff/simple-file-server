@@ -2,6 +2,7 @@
 Taking what I learned about reading socket connections, Here's a basic command-line file server using TCP.
 
 ##Notes
+- [LEARN PYTHON THE HARD WAY](https://learnpythonthehardway.org/book/ex33.html): Free HTML Book.gi 
 
 ##Relevant Links
 - [Compression with PIL and StringIO](http://stackoverflow.com/questions/30771652/how-to-perform-jpeg-compression-in-python-without-writing-reading): Use the last comment's technique,
@@ -59,4 +60,6 @@ Taking what I learned about reading socket connections, Here's a basic command-l
         - nparr = np.fromstring(file/buffer.read(), dtype=np.uint8)
         - img = cv2.imdecode(nparr)
 - [OpenCV 3.0.0](http://docs.opencv.org/3.0-beta/modules/imgcodecs/doc/reading_and_writing_images.html): Reference for imdecode.
-     
+- **Batch Renaming in Python:**
+    - for item in range(0, len(filelist)):
+        - os.rename(filelist[item], 'img_%04d.jpg' % item) 
