@@ -63,3 +63,4 @@ Taking what I learned about reading socket connections, Here's a basic command-l
 - **Batch Renaming in Python:**
     - for item in range(0, len(filelist)):
         - os.rename(filelist[item], 'img_%04d.jpg' % item) 
+- [Spinning in Place](http://stackoverflow.com/questions/4995733/how-to-create-a-spinning-command-line-cursor-using-python)
