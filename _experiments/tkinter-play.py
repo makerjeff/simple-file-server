@@ -4,10 +4,10 @@ from tkFileDialog import *
 
 
 root = Tkinter.Tk()
-
 file_loaded = None
 file_data = None
 
+# Open a file Dialog ---------------
 def browse():
     global file_loaded
     global file_data
@@ -18,21 +18,26 @@ def browse():
         file_data = f.read()
     # print file_data
 
+# Read the file ----------------
 def read_binary():
     print file_data
 
 
+# Main Loop ----------------
+def Main():
+    root.title('Video Viewer')
 
-root.title('Video Viewer')
+    label = Tkinter.Label(root, text='This program reads a text file.')
+    label.pack()
 
+    browse_button = Tkinter.Button(root, text='Browser', command=browse)
+    browse_button.pack()
 
-label = Tkinter.Label(root, text='This program reads a text file.')
-label.pack()
+    something_else_button = Tkinter.Button(root, text='Print Data', command=read_binary)
+    something_else_button.pack()
 
-browse_button = Tkinter.Button(root, text='Browser', command=browse)
-browse_button.pack()
+    root.mainloop()
 
-something_else_button = Tkinter.Button(root, text='Print Data', command=read_binary)
-something_else_button.pack()
-
-root.mainloop()
+# Module Gobbly Gook ---------------
+if __name__ == '__main__':
+    Main()
